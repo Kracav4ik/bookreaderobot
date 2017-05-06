@@ -35,5 +35,13 @@ class TelegramAPI:
     def send(self, chat_id, text):
         requests.get(self.__get_url('sendMessage'), data={
             'chat_id': chat_id,
-            'text': text
+            'text': text,
         })
+
+    def send_button(self, chat_id, text, reply_markup 	):
+        r = requests.get(self.__get_url('sendMessage'), data={
+            'chat_id': chat_id,
+            'text': text,
+            'reply_markup': reply_markup,
+        })
+        print(r.json())
